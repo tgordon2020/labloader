@@ -4,6 +4,13 @@
 This is a simple python/flask webapp that is used to load up the configs in the INE v5 Advanced Technology Lab workbook.  It has been used with virtual hardware in GNS3, but should run fine in any physical or virtual setup.  The backend process is using netmiko to communicate with the devices via a dedicated management VRF.  This prevents the management traffic from influencing the labs in any way.
 
 ### File list
+* lab.py - main python script with flask and netmiko code
+* utils.py - script used to generate some dictionaries for device name and IP mapping, as well as file system directory info
+* fix-configs.py - python script used to add MGMT vrf and MGMT ip info in devices, fix interface numbers(prefix 0/), update VTY config, update http client source, and a few other updates
+### Directory List
+* templates - html/jinja2 files uses to generate HTML for web interface
+* static - css for html
+* topologies - empty by default, extract the INE config files here.
 
 
 ## Preparing the lab setup - GNS3
