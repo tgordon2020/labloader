@@ -32,4 +32,4 @@ The lab utilizes the netmiko library to first do a config replace to the startup
 The switches don't load correctly from the script.  If there are switches in the lab, it will error out on those.  Simply ignore.
 I'm not using concurrency, so it takes about 5 minutes to load the labs.  This really isn't a bad thing, since it gives me a forced break between labs.
 
-![alt text](https://github.com/tgordon2020/labloader/blob/main/lab.png?raw=true)
+![alt text](https://github.com/tgordon2020/labloader/blob/main/lab-top.png?raw=true)
