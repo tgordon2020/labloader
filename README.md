@@ -5,7 +5,7 @@ This is a simple python/flask webapp that is used to load up the configs in the 
 
 ### File list
 * lab.py - main python script with flask and netmiko code
-* utils.py - script used to generate some dictionaries for device name and IP mapping, as well as file system directory info
+* utils.py - script used to generate some dictionaries for device name and IP mapping, as well as file system directory info.  The device IP to name mapping is hard coded in this file.  Edit the devices dictionary with the appropriate IP info for your setup.
 * fix-configs.py - python script used to add MGMT vrf and MGMT ip info in devices, fix interface numbers(prefix 0/), update VTY config, update http client source, and a few other updates
 ### Directory List
 * templates - html/jinja2 files uses to generate HTML for web interface
