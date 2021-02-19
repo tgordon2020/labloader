@@ -31,7 +31,8 @@ The lab utilizes the netmiko library to first do a config replace to the startup
 * running the web application - *lab.py*
  
 ## Issues
-The switches don't load correctly from the script.  If there are switches in the lab, it will error out on those.  Simply ignore.
-I'm not using concurrency, so it takes about 5 minutes to load the labs.  This really isn't a bad thing, since it gives me a forced break between labs.
+* The switches don't load correctly from the script.  If there are switches in the lab, it will error out on those.  Simply ignore.
+* I'm not using concurrency, so it takes about 5 minutes to load the labs.  This really isn't a bad thing, since it gives me a forced break between labs.
+* Since the DMVPN hub is loaded last, sometimes(most of the time) the DMVPN tunnels aren't up after a topology load.  Simply do a shut/no shut on the spokes.
 
 
