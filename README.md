@@ -25,8 +25,8 @@ Create a "base" config for all device and load on all devices.  Use R1 in the ba
 ## Running the lab loading script
 The lab utilizes the netmiko library to first do a config replace to the startup config, then it simply copies the appropriate config into the running config.  Netmiko is the only library that needs to be installed via pip.  The lab files need to be reachable from the devices via HTTP.  I use the built in python SimpleHTTPServer.  Just cd into the topologies directory and run *python -m SimpleHTTPServer 80*.  Now load up the flask/netmiko app with *lab.py*.  You should now be able to connect to port 5000 on the device running the script.  Choose the lab you want from the dropdown.  About 5 minutes later you should be good to go.  I have some ajax in the html to update the status and an alert pops up when it is finished.
 
-running http server to serve up configs - *python -m SimpleHTTPServer 8000*
-running the web application - *lab.py*
+*running http server to serve up configs - *python -m SimpleHTTPServer 8000*
+*running the web application - *lab.py*
  
 ## Issues
 The switches don't load correctly from the script.  If there are switches in the lab, it will error out on those.  Simply ignore.
