@@ -23,5 +23,5 @@ Run the fix-configs.py script to prepare the config files.  This script will loo
 Create a "base" config for all device and load on all devices.  Use R1 in the base.configs as a template for the rest.  Make sure the base config is the startup config on all devices.
 
 ## Running the lab loading script
-The lab utilizes the netmiko library to first do a config replace to the startup config, then it simply copies the appropriate config into the running config.  Netmiko is the only library that needs to be installed via pip.  The lab files need to be reachable from the devices via HTTP.  I use the built in python SimpleHTTPServer.  Just cd into the topologies directory and run *python -m SimpleHTTPServer 80
+The lab utilizes the netmiko library to first do a config replace to the startup config, then it simply copies the appropriate config into the running config.  Netmiko is the only library that needs to be installed via pip.  The lab files need to be reachable from the devices via HTTP.  I use the built in python SimpleHTTPServer.  Just cd into the topologies directory and run *python -m SimpleHTTPServer 80*
 
