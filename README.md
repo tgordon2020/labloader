@@ -1,5 +1,7 @@
 # INE v5 Advanced Technologies Lab loader
 
+![alt text](https://github.com/tgordon2020/labloader/blob/main/labload.gif?raw=true)
+
 ## General Info
 This is a simple python/flask webapp that is used to load up the configs in the INE v5 Advanced Technology Lab workbook.  It has been used with virtual hardware in GNS3, but should run fine in any physical or virtual setup.  The backend process is using netmiko to communicate with the devices via a dedicated management VRF.  This prevents the management traffic from influencing the labs in any way.
 
