@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script> 
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+        <title> CCIE Labs</title>
+    </head>
+    <div class = "wrapper">
+    <body>
+        <div class="divheader">
+        <H2> INE V5 Lab Configs</H2>
+        </div>
+        <div class="divbody">
+            <label for="labs">Choose a lab to load:</label>
+            <select id="labs" name="lab">
+            {% for k,v in content.items() %}
+            <option value="{{ k }}">{{ v }}</option>
+            {% endfor %}
+            </select>
+            <button id = "get_result" class="btn btn-secondary btn-sm" type="button">
+                <span id = "loader" class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                <span id = "submit">Load Lab</span>
+                <span id = "loading">loading...</span>
+            </button>
+        </div>
+    <div class="result">
+    </div>
+    </body>
+    </div>
+    </div>
+    <script>
+        function fetchresults(){
+          $.ajax({
+            url: 'labs',
+            type: 'get',
+            success: function(response){
+             $(".result").html(response);
+            }
+          });
+        }
+        var $loader = $("#loader").hide();
+        var $subbut = $("#get_result").prop("disabled", false);
+        var $submit = $("#submit").show();
+        var $loading = $("#loading").hide();
+        
+        $(document)
+        .ajaxStart(function (){
+          $loader.show();
+          $subbut.prop("disabled", true);
+          $loading.show();
+          $submit.hide();
+        })
+        .ajaxStop(function (){
+          $loader.hide();
+          $subbut.prop("disabled", false);
+          $loading.hide();
+          $submit.show();
+        })
+        .ready(function(){
+     
+          $('.wrapper').on('click', '#get_result', function(){
+           var queryInterval = setInterval(fetchresults, 1000);
+           var lab = $("#labs").val();
+            $(".result").empty();
+           $.ajax({
+             url: "/labs",
+             type: "POST",
+               data: {lab:lab},
+               dataType: "html",
+               success: function(response) {
+                 clearInterval(queryInterval)
+                 if(response.indexOf("error") > -1 ){
+                   $(".result").empty();
+                     var obj = jQuery.parseJSON(response);
+                     alert(obj.error);
+                     console.log(obj.error)
+                 } else {
+                   $(".result").html(response);
+                   alert("Lab Loaded")
+                   }
+                   },
+              });
+           });
+         });
+      </script>
+</html>

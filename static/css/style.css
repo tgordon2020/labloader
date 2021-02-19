@@ -1,0 +1,98 @@
+body {
+    padding:100px;
+    background-color:  rgb(15, 10, 2);
+    color: #275F89;
+    font-size: larger;
+}
+
+.divheader {
+    background-color: rgb(255, 255, 255);
+    border-style: dotted;
+    border-color: #005874;
+    border-radius: 10px 10px 0px 0px;
+    border-width:thin;
+    padding-left:10px;
+    font-family: monospace;
+    font-size: 25px;
+    width: 1000px;
+    margin: auto;
+}
+
+.divbody {
+    background-color: rgb(255, 255, 255);
+    border-style: dotted;
+    border-radius: 0px 0px 10px 10px;
+    border-width: thin;
+    border-color: #005874;
+    padding-left: 5px;
+    padding-top: 10px;
+    font-family: monospace;
+    font-size: 18px;
+    width: 1000px;
+    margin: auto;
+}
+
+h2.divbody {
+    font-size: 24px;
+}
+
+.divstatus {
+    background-color: rgb(255, 255, 255);
+    border-style: dotted;
+    border-radius: 10px 10px 10px 10px;
+    border-width: thin;
+    border-color: #005874;
+    padding: 10px 10px 10px 10px;
+    font-family:monospace;
+    width: 1000px;
+    margin: auto;
+}
+
+h2.divstatus {
+    font-size: 28px;
+}
+
+.progress-bar-custom{
+    background: #7eaaca;
+  }
+
+
+.iframe-container {
+    overflow: hidden;
+    padding-top: 56.25%;
+    position: relative;
+  }
+   
+  .iframe-container iframe {
+     border: 0;
+     height: 100%;
+     left: 0;
+     position: absolute;
+     top: 0;
+     width: 100%;
+  }
+
+input[type="radio"] {
+    margin-right: 6px;
+    margin-top: 6px;
+  }
+
+  .button {
+    background-color: #275f89;
+    border-radius: 5px;
+    border-width: thin;
+    color: white;
+    padding: 3px 3px;
+    margin: 5px 5px 5px 0px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: monospace;
+    font-size: 14px;
+    transition-duration: 0.2s;
+  } 
+
+  .button:hover{
+      background-color: White;
+      color: #275f89;
+  }
