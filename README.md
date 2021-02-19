@@ -18,6 +18,8 @@ The INE labs utilized subinterfaces to "virtually" connected devices together fr
 
 The first step is getting the topology physically connected.  I used gig0/1(which maps to gig1) in the config files as the interface that connects the devices together for the labs.  Basically follow the topology setup that INE has in the guides.  I also am using interface gig0/0 for management.  This is the inteface that I use to telnet into the devices as well as the interface that netmiko uses to communicate.  Pretty easy setup, just configure a switch and plug gig0/0 on all devices into this switch.
 
+![alt text](https://github.com/tgordon2020/labloader/blob/main/lab-top.png?raw=true)
+
 Run the fix-configs.py script to prepare the config files.  This script will look at all subdirectories in the topologies directory.  It will open the files and update the configs with the necessary changes to make the lab work.  The IP address that is assigned to the gig0/0 interface in the MGMT vrf is read from the utils.py file.  Update this file before running this script.  The switch configs in the labs don't update correctly.  Because there are so few labs that use the switches, I didn't really care.  If any config is not updated properly, it will spit out the directory and file name to stdout.
 
 Create a "base" config for all device and load on all devices.  Use R1 in the base.configs as a template for the rest.  Make sure the base config is the startup config on all devices.
@@ -32,4 +34,4 @@ The lab utilizes the netmiko library to first do a config replace to the startup
 The switches don't load correctly from the script.  If there are switches in the lab, it will error out on those.  Simply ignore.
 I'm not using concurrency, so it takes about 5 minutes to load the labs.  This really isn't a bad thing, since it gives me a forced break between labs.
 
-![alt text](https://github.com/tgordon2020/labloader/blob/main/lab-top.png?raw=true)
+
